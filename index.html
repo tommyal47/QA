@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+        <!-- first page -->
+        
+         <section id="f_page" >
+            <form action="" method="post"></form>
+                <label for=""> Full Name </label>
+                <input id="name" type="text" required>
+                <label for=""> Phone Number</label>
+                <input id="p_number" type="text">
+                <label for=""> Level </label> <br>
+                <select name="" id="year">
+                    <option value=""> select </option>
+                    <option value="Year 1"> Year 1 </option>
+                    <option value="Year 2"> Year 2 </option>
+                    <option value="Year 3"> Year 3 </option>
+                </select> <br>
+                <button type="submit" onclick="sub()" id="f_nex">Next</button>
+            </form>
+        </section>
+    
+        <!-- first question -->
+         <section id="s_page" class="hide">
+            <label for=""> In which year Neoten was born? </label> <br>
+            <input type="radio" name="neoten" value="1880" id=""> 1880 <br>
+            <input type="radio" name="neoten" value="1890" id=""> 1890 <br>
+            <input type="radio" name="neoten" value="1980" id=""> 1980 <br>
+            <!-- <select name="" id="">
+                <option value=""> select </option>
+                <option value=""> 1880 </option>
+                <option value=""> 1890 </option>
+                <option value=""> 1980 </option>
+            </select> <br> -->
+            <button id="f_next" type="submit">Next</button>
+        </section>
+        <!-- second question -->
+         <section hidden>
+            <label for=""> Neoten is the scientest who invented </label> <br>
+            <input type="radio" name="invented" value="electeristy" id=""> electeristy <br>
+            <input type="radio" name="invented" value="gravite" id=""> gravite <br>
+            <input type="radio" name="invented" value="none of the above" id=""> none of the above <br>
+            <!-- <select name="" id="">
+                <option value=""> select </option>
+                <option value=""> electeristy </option>
+                <option value=""> gravite </option>
+                <option value=""> none of the above </option>
+            </select> <br> -->
+            <button type="submit">Next</button>
+        </section>
+        <!-- third question -->
+         <section hidden>
+            <label for=""> In which year Tesla was born? </label> <br>
+            <input type="radio" name="tesla" value="1880" id=""> 1880 <br>
+            <input type="radio" name="tesla" value="1890" id=""> 1890 <br>
+            <input type="radio" name="tesla" value="1980" id=""> 1980 <br>
+            <!-- <select name="" id="">
+                <option value=""> select </option>
+                <option value=""> 1880 </option>
+                <option value=""> 1890 </option>
+                <option value=""> 1980 </option>
+            </select> <br> -->
+            <button type="submit">Next</button>
+        </section>
+        <!-- fourth question -->
+         <section hidden>
+            <label for=""> Tesla discovered </label> <br>
+            <input type="radio" name="discovered" value="the amber" id=""> the amber <br>
+            <input type="radio" name="discovered" value="the electeristy" id=""> the electeristy <br>
+            <input type="radio" name="discovered" value="all of the above" id=""> all of the above <br>
+            <!-- <select name="" id="">
+                <option value=""> select </option>
+                <option value=""> the amber </option>
+                <option value=""> the electeristy </option>
+                <option value=""> all of the above </option>
+            </select> <br> -->
+            <button type="submit">Next</button>
+        </section>
+        <!-- fifth question -->
+         <section hidden>
+            <label for=""> In which year you were born? </label> <br>
+            <input type="radio" name="born" value="1997" id=""> 1997 <br>
+            <input type="radio" name="born" value="1996" id=""> 1996 <br>
+            <input type="radio" name="born" value="1998" id=""> 1998 <br>
+            <!-- <select name="" id="">
+                <option value=""> select </option>
+                <option value=""> 1997 </option>
+                <option value=""> 1996 </option>
+                <option value=""> 1998 </option>
+            </select> -->
+            <button type="submit">Finish</button>
+        </section>
+
+        <script src="script.js"></script>
+</body>
+</html>
