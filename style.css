@@ -3,12 +3,12 @@
     padding: 0px;
 }
 
-button{
+#f_page button{
     margin: 30px 180%;
     width: 80px;
 }
 
-input{
+#f_page input{
     margin: 5px;
     width: 250px;
     padding: 10px;
@@ -21,4 +21,23 @@ select{
 
 .hide{
     display: none;
+}
+.q_pages{
+    margin: 12% 40%;
+    width: 600px;
+}
+.q_pages label{
+    font-size: 30px;
+}
+.q_pages span{
+    font-size: 20px;
+}
+
+.q_pages input{
+    margin-top: 20px;
+    padding: 10px;
+}
+.q_pages button{
+    margin: 30px 69%;
+    width: 80px;
 }
