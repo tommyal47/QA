@@ -14,6 +14,7 @@ const sec7 = document.getElementById('end_page');
 const timerElement = document.getElementById('t_min');
 const timerElemen = document.getElementById('q_min');
 let next = false;
+let skip = false;
 
 class Student{
     name = ''
@@ -47,7 +48,7 @@ function sub (){
     arr.push(student)
     console.log(arr);
     addAndRemove(sec1, sec2)
-    startCountdown(5)
+    startCountdown(1)
     startCountQuestion(sec2, sec3);
 }
 
@@ -129,17 +130,21 @@ function updateTimerDisplay(minutes, seconds) {
 function startCountdown(x) {
     let countdownTime = x * 60;
     const countdownInterval = setInterval(() => {
-        if (countdownTime <= 0) {
+        if (countdownTime <= 0 || !sec7.classList.contains('hide')) {
             clearInterval(countdownInterval);
             hideAll(section);
             sec7.classList.remove('hide');
             sec7.innerHTML = `Your score is ${arr[0].score} `
-            alert('Time is up!');
+            if (countdownTime <= 0){
+                alert('Time is up!');
+            }
             timerElement.classList.add('hide');
             return;
         }
         timerElement.classList.remove('hide');
         countdownTime--;
+        console.log(sec7.classList.contains('hide'));
+        
 
         const minutes = Math.floor(countdownTime / 60);
         const seconds = countdownTime % 60;
@@ -152,10 +157,12 @@ function startCountdown(x) {
 function startCountQuestion(secadd, secremove){
     let countdown = 10;
     const countdownInterval = setInterval(() => {
-        if (countdown <= 0 || next ) {
+        if (countdown <= 1 || next) {
             next = false;
             clearInterval(countdownInterval);
             addAndRemove(secadd, secremove);
+            // countdown = 10;
+            // startCountQuestion(secadd, secremove);
             return;
         }
         if (secremove == 'sec7'){
@@ -163,7 +170,7 @@ function startCountQuestion(secadd, secremove){
         }
         timerElemen.classList.remove('hide');
         countdown--;
-
+        
         const minutes = Math.floor(countdown / 60);
         const seconds = countdown % 60;
         timerElemen.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
