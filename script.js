@@ -12,6 +12,8 @@ const sec5 = document.getElementById('fi_page');
 const sec6 = document.getElementById('se_page');
 const sec7 = document.getElementById('end_page');
 const timerElement = document.getElementById('t_min');
+const timerElemen = document.getElementById('q_min');
+let next = false;
 
 class Student{
     name = ''
@@ -45,10 +47,12 @@ function sub (){
     arr.push(student)
     console.log(arr);
     addAndRemove(sec1, sec2)
-    startCountdown(1)
+    startCountdown(5)
+    startCountQuestion(sec2, sec3);
 }
 
 function section2 (){
+    next = true;
     const selectedCheckboxes = document.querySelectorAll('.f_o:checked');
     const values = [];
     selectedCheckboxes.forEach((checkbox) => {
@@ -57,10 +61,13 @@ function section2 (){
     if (values[0] == 1890){
         arr[0].score += 10;
     }
-    addAndRemove(sec2, sec3)
+    startCountQuestion(sec3, sec4);
+    addAndRemove(sec2, sec3);
+    
 }
 
 function section3 (){
+    next = true;
     const selectedCheckboxes = document.querySelectorAll('.s_o:checked');
     const values = [];
     selectedCheckboxes.forEach((checkbox) => {
@@ -70,9 +77,11 @@ function section3 (){
         arr[0].score += 10;
     }
     addAndRemove(sec3, sec4)
+    startCountQuestion(sec4, sec5);
 }
 
 function section4 (){
+    next = true;
     const selectedCheckboxes = document.querySelectorAll('.t_o:checked');
     const values = [];
     selectedCheckboxes.forEach((checkbox) => {
@@ -82,9 +91,11 @@ function section4 (){
         arr[0].score += 10;
     }
     addAndRemove(sec4, sec5)
+    startCountQuestion(sec5, sec6);
 }
 
 function section5 (){
+    next = true;
     const selectedCheckboxes = document.querySelectorAll('.f_o:checked');
     const values = [];
     selectedCheckboxes.forEach((checkbox) => {
@@ -97,10 +108,13 @@ function section5 (){
     }
     console.log(values);
     addAndRemove(sec5, sec6)
+    startCountQuestion(sec6, sec7);
+    // timerElemen.classList.add('hide')
 }
 
 function endPage (){
     addAndRemove(sec6, sec7)
+    // timerElemen.classList.add('hide');
     sec7.innerHTML = `Your score is ${arr[0].score} `
 }
 
@@ -132,4 +146,27 @@ function startCountdown(x) {
         
         updateTimerDisplay(minutes, seconds);
     }, 1000);
+}
+
+// start count for every question
+function startCountQuestion(secadd, secremove){
+    let countdown = 10;
+    const countdownInterval = setInterval(() => {
+        if (countdown <= 0 || next ) {
+            next = false;
+            clearInterval(countdownInterval);
+            addAndRemove(secadd, secremove);
+            return;
+        }
+        if (secremove == 'sec7'){
+            timerElemen.classList.add('hide');
+        }
+        timerElemen.classList.remove('hide');
+        countdown--;
+
+        const minutes = Math.floor(countdown / 60);
+        const seconds = countdown % 60;
+        timerElemen.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        // updateTimerDisplay(minutes, seconds);
+    },1000);
 }
