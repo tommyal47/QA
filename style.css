@@ -26,6 +26,10 @@ select{
     margin: 12% 40%;
     width: 600px;
 }
+#q_min{
+    margin-left: 70%;
+    
+}
 .q_pages label{
     font-size: 30px;
 }

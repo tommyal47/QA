@@ -11,9 +11,7 @@ const sec4 = document.getElementById('fo_page');
 const sec5 = document.getElementById('fi_page');
 const sec6 = document.getElementById('se_page');
 const sec7 = document.getElementById('end_page');
-
-
-// console.log(firstNext);
+const timerElement = document.getElementById('t_min');
 
 class Student{
     name = ''
@@ -27,15 +25,18 @@ class Student{
 
 let arr = [];
 
-// firstNext.addEventListener('submit', function(){
-//     console.log("click");
-    
-// // })
-// firstNext.addEventListener('submit', function(event) {
-//     event.preventDefault(); // Prevents the form from submitting if needed
-//     console.log("Form submitted");
-// });
+// add and remove hide calss
+function addAndRemove(hid, disp){
+    hid.classList.add('hide');
+    disp.classList.remove('hide');
+}
 
+var section = [sec1, sec2, sec3, sec4, sec5, sec6]
+function hideAll(section){
+    section.forEach(function(s){
+        s.classList.add('hide');
+    })
+}
 function sub (){
     let student = new Student();
     student.name = fName.value;
@@ -43,11 +44,8 @@ function sub (){
     student.level = year.value;
     arr.push(student)
     console.log(arr);
-    sec1.classList.add('hide');
-    sec2.classList.remove('hide');
-
-
-    
+    addAndRemove(sec1, sec2)
+    startCountdown(1)
 }
 
 function section2 (){
@@ -59,11 +57,7 @@ function section2 (){
     if (values[0] == 1890){
         arr[0].score += 10;
     }
-    sec2.classList.add('hide');
-    sec3.classList.remove('hide');
-    console.log(arr[0].score);
-    
-    
+    addAndRemove(sec2, sec3)
 }
 
 function section3 (){
@@ -75,9 +69,7 @@ function section3 (){
     if (values[0] == 'electeristy'){
         arr[0].score += 10;
     }
-    sec3.classList.add('hide');
-    sec4.classList.remove('hide');
-    console.log(arr[0].score);
+    addAndRemove(sec3, sec4)
 }
 
 function section4 (){
@@ -89,9 +81,7 @@ function section4 (){
     if (values[0] == 1980){
         arr[0].score += 10;
     }
-    sec4.classList.add('hide');
-    sec5.classList.remove('hide');
-    console.log(arr[0].score);
+    addAndRemove(sec4, sec5)
 }
 
 function section5 (){
@@ -106,17 +96,40 @@ function section5 (){
         arr[0].score += 10;
     }
     console.log(values);
-    
-    sec5.classList.add('hide');
-    sec6.classList.remove('hide');
-    console.log(arr[0].score);
-    
+    addAndRemove(sec5, sec6)
 }
 
 function endPage (){
-    sec6.classList.add('hide');
-    sec7.classList.remove('hide');
+    addAndRemove(sec6, sec7)
     sec7.innerHTML = `Your score is ${arr[0].score} `
 }
 
 
+// timer function 
+// Function to update the timer display
+function updateTimerDisplay(minutes, seconds) {
+    timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+
+// Function to start the countdown
+function startCountdown(x) {
+    let countdownTime = x * 60;
+    const countdownInterval = setInterval(() => {
+        if (countdownTime <= 0) {
+            clearInterval(countdownInterval);
+            hideAll(section);
+            sec7.classList.remove('hide');
+            sec7.innerHTML = `Your score is ${arr[0].score} `
+            alert('Time is up!');
+            timerElement.classList.add('hide');
+            return;
+        }
+        timerElement.classList.remove('hide');
+        countdownTime--;
+
+        const minutes = Math.floor(countdownTime / 60);
+        const seconds = countdownTime % 60;
+        
+        updateTimerDisplay(minutes, seconds);
+    }, 1000);
+}
