@@ -5,16 +5,18 @@ const fName = document.getElementById('name');
 const phoneNumber = document.getElementById('p_number');
 const year = document.getElementById('year');
 const sec1 = document.getElementById('f_page');
-const sec2 = document.getElementById('s_page');
-const sec3= document.getElementById('t_page');
-const sec4 = document.getElementById('fo_page');
-const sec5 = document.getElementById('fi_page');
-const sec6 = document.getElementById('se_page');
-const sec7 = document.getElementById('end_page');
+const sec2 = document.getElementById('sec2');
+const sec3= document.getElementById('sec3');
+const sec4 = document.getElementById('sec4');
+const sec5 = document.getElementById('sec5');
+const sec6 = document.getElementById('sec6');
+const sec7 = document.getElementById('sec7');
 const timerElement = document.getElementById('t_min');
 const timerElemen = document.getElementById('q_min');
 let next = false;
 let skip = false;
+let currentSection = 2;
+let maxSection= 7;
 
 class Student{
     name = ''
@@ -46,10 +48,9 @@ function sub (){
     student.phoneNumber = phoneNumber.value;
     student.level = year.value;
     arr.push(student)
-    console.log(arr);
     addAndRemove(sec1, sec2)
     startCountdown(1)
-    startCountQuestion(sec2, sec3);
+    startCountQuestion();
 }
 
 function section2 (){
@@ -101,13 +102,11 @@ function section5 (){
     const values = [];
     selectedCheckboxes.forEach((checkbox) => {
         values.push(checkbox.value);
-        console.log(checkbox.value);
         
     });
     if (values[1] == 'the amber'){
         arr[0].score += 10;
     }
-    console.log(values);
     addAndRemove(sec5, sec6)
     startCountQuestion(sec6, sec7);
     // timerElemen.classList.add('hide')
@@ -143,9 +142,6 @@ function startCountdown(x) {
         }
         timerElement.classList.remove('hide');
         countdownTime--;
-        console.log(sec7.classList.contains('hide'));
-        
-
         const minutes = Math.floor(countdownTime / 60);
         const seconds = countdownTime % 60;
         
@@ -154,19 +150,27 @@ function startCountdown(x) {
 }
 
 // start count for every question
-function startCountQuestion(secadd, secremove){
-    let countdown = 10;
+function startCountQuestion(){
+    let countdown = 5;
     const countdownInterval = setInterval(() => {
-        if (countdown <= 1 || next) {
+        if (countdown <= 0 || next) {
             next = false;
             clearInterval(countdownInterval);
-            addAndRemove(secadd, secremove);
+            transitionToNextSection()
+            if (currentSection <= maxSection) {
+                countdown = 10; // Reset countdown
+                startCountQuestion(); // Restart the timer for the next section
+            }
+
             // countdown = 10;
             // startCountQuestion(secadd, secremove);
             return;
         }
-        if (secremove == 'sec7'){
+        
+        
+        if (currentSection == 7){
             timerElemen.classList.add('hide');
+            return;
         }
         timerElemen.classList.remove('hide');
         countdown--;
@@ -176,4 +180,21 @@ function startCountQuestion(secadd, secremove){
         timerElemen.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         // updateTimerDisplay(minutes, seconds);
     },1000);
+}
+// transition to the next section
+function transitionToNextSection (){
+    if (currentSection < maxSection){
+        let secadd = document.getElementById(`sec${currentSection}`);
+        // let secadd = sec2;
+        let secremove = document.getElementById(`sec${currentSection + 1}`);
+        // let secremove = sec3;
+        currentSection++;
+        addAndRemove(secadd, secremove);
+        
+
+    }else {
+        // Logic for when reaching the final section
+        timerElemen.classList.add('hide');
+        return;
+    }
 }
