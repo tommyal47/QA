@@ -64,7 +64,7 @@ function section2 (){
         arr[0].score += 10;
     }
     startCountQuestion(sec3, sec4);
-    addAndRemove(sec2, sec3);
+    // addAndRemove(sec2, sec3);
     
 }
 
@@ -78,8 +78,8 @@ function section3 (){
     if (values[0] == 'electeristy'){
         arr[0].score += 10;
     }
-    addAndRemove(sec3, sec4)
-    startCountQuestion(sec4, sec5);
+    // addAndRemove(sec3, sec4)
+    startCountQuestion();
 }
 
 function section4 (){
@@ -92,8 +92,8 @@ function section4 (){
     if (values[0] == 1980){
         arr[0].score += 10;
     }
-    addAndRemove(sec4, sec5)
-    startCountQuestion(sec5, sec6);
+    // addAndRemove(sec4, sec5)
+    startCountQuestion();
 }
 
 function section5 (){
@@ -107,8 +107,8 @@ function section5 (){
     if (values[1] == 'the amber'){
         arr[0].score += 10;
     }
-    addAndRemove(sec5, sec6)
-    startCountQuestion(sec6, sec7);
+    // addAndRemove(sec5, sec6)
+    startCountQuestion();
     // timerElemen.classList.add('hide')
 }
 
@@ -153,19 +153,41 @@ function startCountdown(x) {
 function startCountQuestion(){
     let countdown = 5;
     const countdownInterval = setInterval(() => {
-        if (countdown <= 0 || next) {
+        if (next){
             next = false;
+            clearInterval(countdownInterval);
+            transitionToNextSection()
+            
+        
+            // countdown = 10;
+            // startCountQuestion(secadd, secremove);
+            return;
+            }
+            if (countdown <= 0) {
+                // next = false;
+                // console.log("entered");
+                
             clearInterval(countdownInterval);
             transitionToNextSection()
             if (currentSection <= maxSection) {
                 countdown = 10; // Reset countdown
                 startCountQuestion(); // Restart the timer for the next section
+                return;
             }
-
-            // countdown = 10;
-            // startCountQuestion(secadd, secremove);
-            return;
         }
+        // if (countdown <= 0) {
+        //     // next = false;
+        //     clearInterval(countdownInterval);
+        //     transitionToNextSection()
+        //     if (currentSection <= maxSection) {
+        //         countdown = 10; // Reset countdown
+        //         startCountQuestion(); // Restart the timer for the next section
+        //     }
+
+        //     // countdown = 10;
+        //     // startCountQuestion(secadd, secremove);
+        //     return;
+        // }
         
         
         if (currentSection == 7){
