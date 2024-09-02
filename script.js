@@ -44,13 +44,16 @@ function hideAll(section){
 }
 function sub (){
     let student = new Student();
-    student.name = fName.value;
-    student.phoneNumber = phoneNumber.value;
-    student.level = year.value;
-    arr.push(student)
-    addAndRemove(sec1, sec2)
-    startCountdown(1)
-    startCountQuestion();
+    if (fName.value, phoneNumber.value, year.value) {
+        student.name = fName.value;
+        student.phoneNumber = phoneNumber.value;
+        student.level = year.value;
+        arr.push(student)
+        addAndRemove(sec1, sec2)
+        startCountdown(1)
+        startCountQuestion();
+    }
+    
 }
 
 function section2 (){
