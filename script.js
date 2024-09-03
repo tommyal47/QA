@@ -34,6 +34,7 @@ let arr = [];
 function addAndRemove(hid, disp){
     hid.classList.add('hide');
     disp.classList.remove('hide');
+  
 }
 
 var section = [sec1, sec2, sec3, sec4, sec5, sec6]
@@ -116,6 +117,7 @@ function section5 (){
 }
 
 function endPage (){
+    // timerElemen.classList.add('hide');
     addAndRemove(sec6, sec7)
     // timerElemen.classList.add('hide');
     sec7.innerHTML = `Your score is ${arr[0].score} `
@@ -173,10 +175,21 @@ function startCountQuestion(){
             clearInterval(countdownInterval);
             transitionToNextSection()
             if (currentSection <= maxSection) {
-                countdown = 10; // Reset countdown
+                countdown = 5; // Reset countdown
                 startCountQuestion(); // Restart the timer for the next section
                 return;
             }
+
+            // if (!sec7.classList.contains('hide')){
+            //     clearInterval(countdownInterval);
+            //     timerElemen.classList.add('hide');
+            //     // console.log('hide');
+                
+            //     return;
+            // } else {
+            //     timerElemen.classList.remove('hide');
+            //     countdown--;
+            // }
         }
         // if (countdown <= 0) {
         //     // next = false;
@@ -193,12 +206,19 @@ function startCountQuestion(){
         // }
         
         
-        if (currentSection == 7){
+        if (!sec7.classList.contains('hide')){
+            clearInterval(countdownInterval);
             timerElemen.classList.add('hide');
+            // console.log(currentSection);
+            
+            // console.log('hide');
+            
             return;
+        } else {
+            timerElemen.classList.remove('hide');
+            countdown--;
         }
-        timerElemen.classList.remove('hide');
-        countdown--;
+        
         
         const minutes = Math.floor(countdown / 60);
         const seconds = countdown % 60;
