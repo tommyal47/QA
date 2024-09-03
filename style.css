@@ -23,8 +23,12 @@ select{
     display: none;
 }
 .q_pages{
-    margin: 12% 40%;
+    padding: 10px;
+    margin: 12% 32%;
     width: 600px;
+    border: solid 1px green;
+    border-radius: 10px;
+    box-shadow: 3px 5px;
 }
 #q_min{
     margin-left: 70%;
@@ -42,8 +46,11 @@ select{
     padding: 10px;
 }
 .q_pages button{
-    margin: 30px 69%;
-    width: 80px;
+    margin: 30px 83%;
+    width: 90px;
+    margin-bottom: 2px;
+    border-radius: 9px;
+    background-color: gainsboro;
 }
 
 #sec7 {
