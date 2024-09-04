@@ -1,22 +1,36 @@
 #f_page{
-    margin: 12% 45%;
-    padding: 0px;
+    /* margin: 12% 45%;
+    padding: 0px; */
+    padding: 30px;
+    margin: 12% 32%;
+    width: 600px;
+    height: 250px;
+    box-sizing: border-box;
+    border: solid 1px green;
+    border-radius: 10px;
+    box-shadow: 3px 5px;
 }
 
 #f_page button{
-    margin: 30px 180%;
-    width: 80px;
+    margin: 30px 40%;
+    width: 120px;
+    height: 25px;
+    margin-bottom: 2px;
+    border-radius: 9px;
+    background-color: gainsboro;
 }
 
 #f_page input{
     margin: 5px;
     width: 250px;
     padding: 10px;
+    border-radius: 10px;
 }
 select{
     margin: 5px;
     width: 250px;
     padding: 10px;
+    border-radius: 10px;
 }
 
 .hide{
@@ -26,13 +40,21 @@ select{
     padding: 10px;
     margin: 12% 32%;
     width: 600px;
+    height: 250px;
     border: solid 1px green;
     border-radius: 10px;
     box-shadow: 3px 5px;
 }
 #q_min{
-    margin-left: 70%;
+    /* margin-left: 90%; */
+    /* margin-top: 10px; */
+    margin: 0px;
+    margin-left: 90%;
+    padding: 0;
     
+}
+#t_min{
+    margin: 0;
 }
 .q_pages label{
     font-size: 30px;
@@ -54,5 +76,17 @@ select{
 }
 
 #sec7 {
-    margin: 12% 40%;
+    padding: 10px;
+    margin: 12% 32%;
+    width: 600px;
+    height: 250px;
+    border: solid 1px green;
+    border-radius: 10px;
+    box-shadow: 3px 5px;
+    font-size: large;
+    text-align: center;
+}
+
+#s_score{
+    margin-top: 15%;
 }

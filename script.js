@@ -11,6 +11,7 @@ const sec4 = document.getElementById('sec4');
 const sec5 = document.getElementById('sec5');
 const sec6 = document.getElementById('sec6');
 const sec7 = document.getElementById('sec7');
+scoreEl = document.getElementById('s_score');
 const timerElement = document.getElementById('t_min');
 const timerElemen = document.getElementById('q_min');
 let next = false;
@@ -120,7 +121,7 @@ function endPage (){
     // timerElemen.classList.add('hide');
     addAndRemove(sec6, sec7)
     // timerElemen.classList.add('hide');
-    sec7.innerHTML = `Your score is ${arr[0].score} `
+    scoreEl.innerHTML = `Your score is ${arr[0].score} `
 }
 
 
@@ -138,7 +139,7 @@ function startCountdown(x) {
             clearInterval(countdownInterval);
             hideAll(section);
             sec7.classList.remove('hide');
-            sec7.innerHTML = `Your score is ${arr[0].score} `
+            scoreEl.innerHTML = `Your score is ${arr[0].score} `
             if (countdownTime <= 0){
                 alert('Time is up!');
             }
@@ -179,6 +180,7 @@ function startCountQuestion(){
                 startCountQuestion(); // Restart the timer for the next section
                 return;
             }
+            
 
             // if (!sec7.classList.contains('hide')){
             //     clearInterval(countdownInterval);
@@ -243,3 +245,4 @@ function transitionToNextSection (){
         return;
     }
 }
+console.log(timerElement);
