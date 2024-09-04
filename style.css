@@ -12,7 +12,7 @@
 }
 
 #f_page button{
-    margin: 80px 40%;
+    margin: 45px 40%;
     
     width: 120px;
     height: 25px;
@@ -21,27 +21,38 @@
     background-color: gainsboro;
 }
 
+label{
+    margin: 0px;
+    width: 200px;
+    padding: 0;
+}
+#name{
+    margin-left: 128px !important;
+}
 #f_page input{
     margin: 5px;
     width: 250px;
+    margin-left: 100px;
     padding: 10px;
     border-radius: 10px;
+    /* position: absolute; */
 }
 select{
     margin: 5px;
-    width: 250px;
+    width: 275px;
     padding: 10px;
+    margin-left: 160px;
     border-radius: 10px;
 }
 
 .hide{
-    /* display: none; */
+    display: none;
 }
 .q_pages{
     padding: 10px;
     margin: 12% 32%;
     width: 600px;
-    height: 300px;
+    height: 250px;
     border: solid 1px green;
     border-radius: 10px;
     box-shadow: 3px 5px;
@@ -55,7 +66,10 @@ select{
     
 }
 #t_min{
-    margin: 0;
+    /* margin-top: 100px; */
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 490px;
 }
 .q_pages label{
     font-size: 30px;
@@ -96,5 +110,5 @@ select{
     font-size: smaller;
     color: red;
     margin: 0;
-    margin-left: 100px;
+    margin-left: 200px;
 }

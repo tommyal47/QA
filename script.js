@@ -41,34 +41,45 @@ function validateForm() {
     const nameError = document.getElementById('name_error')
     const phoneError = document.getElementById('phone_error')
     const selectError = document.getElementById('select_error')
-    if (name == "") {
-        // alert("Name must be filled out");
-        nameError.textContent = 'Name must be filled out'
-        nameError.classList.remove('hide')
-        // return false;
-    } else{
-        console.log(name);
-        
-        nameError.classList.add('hide')
-    }
-
-    if (!/^[0-9]{11}$/.test(phone)) {
-        // alert("Phone number must be 11 digits");
-        phoneError.textContent = 'Phone number must be 11 digits'
-        phoneError.classList.remove('hide')
-        console.log(phone.length);
-        
-        // return false;
-    }
-
-    if (yearLevel == "") {
-        // alert("Year must be filled out");
-        selectError.textContent = 'Year must be filled out'
-        selectError.classList.remove('hide')
-        console.log(yearLevel);
-        
-        // return false;
-    }
+    // if (!name || !phone || !yearLevel) {
+        if (name == "") {
+            // alert("Name must be filled out");
+            nameError.textContent = 'Name must be filled out'
+            nameError.classList.remove('hide')
+            return false;
+        } else{
+            // console.log(name);
+            
+            nameError.classList.add('hide')
+        }
+    
+        if (!/^[0-9]{11}$/.test(phone)) {
+            // alert("Phone number must be 11 digits");
+            phoneError.textContent = 'Phone number must be 11 digits'
+            phoneError.classList.remove('hide')
+            // console.log(phone.length);
+            
+            return false;
+        }else{
+            // console.log(name);
+            
+            phoneError.classList.add('hide')
+        }
+    
+        if (yearLevel == "") {
+            // alert("Year must be filled out");
+            selectError.textContent = 'Year must be filled out'
+            selectError.classList.remove('hide')
+            // console.log(yearLevel);
+            
+            return false;
+        }
+        else {
+            selectError.classList.add('hide');
+            return true;
+        }
+    // }
+    
 }
 // add and remove hide calss
 function addAndRemove(hid, disp){
@@ -87,15 +98,18 @@ function sub (){
     // console.log(validateForm());
     if (validateForm()){
         let student = new Student();
-    if (fName.value, phoneNumber.value, year.value) {
-        student.name = fName.value;
-        student.phoneNumber = phoneNumber.value;
-        student.level = year.value;
-        arr.push(student)
-        addAndRemove(sec1, sec2)
-        startCountdown(1)
-        startCountQuestion();
-    }
+        // if (fName.value, phoneNumber.value, year.value) {
+            student.name = fName.value;
+            student.phoneNumber = phoneNumber.value;
+            student.level = year.value;
+            arr.push(student)
+            addAndRemove(sec1, sec2)
+            startCountdown(5)
+            startCountQuestion();
+        // }
+    }else {
+        validateForm();
+        // console.log(validateForm());
     }
 }
 
@@ -198,7 +212,7 @@ function startCountdown(x) {
 
 // start count for every question
 function startCountQuestion(){
-    let countdown = 5;
+    let countdown = 60;
     const countdownInterval = setInterval(() => {
         if (next){
             next = false;
@@ -217,7 +231,7 @@ function startCountQuestion(){
             clearInterval(countdownInterval);
             transitionToNextSection()
             if (currentSection <= maxSection) {
-                countdown = 5; // Reset countdown
+                countdown = 60; // Reset countdown
                 startCountQuestion(); // Restart the timer for the next section
                 return;
             }
@@ -251,14 +265,12 @@ function startCountQuestion(){
         
         if (!sec7.classList.contains('hide')){
             clearInterval(countdownInterval);
-            timerElemen.classList.add('hide');
             // console.log(currentSection);
             
             // console.log('hide');
             
             return;
         } else {
-            timerElemen.classList.remove('hide');
             countdown--;
         }
         
@@ -291,4 +303,4 @@ function transitionToNextSection (){
         return;
     }
 }
-console.log(timerElement);
+// console.log(timerElement);
