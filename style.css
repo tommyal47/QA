@@ -4,7 +4,7 @@
     padding: 30px;
     margin: 12% 32%;
     width: 600px;
-    height: 250px;
+    height: 300px;
     box-sizing: border-box;
     border: solid 1px green;
     border-radius: 10px;
@@ -12,7 +12,8 @@
 }
 
 #f_page button{
-    margin: 30px 40%;
+    margin: 80px 40%;
+    
     width: 120px;
     height: 25px;
     margin-bottom: 2px;
@@ -34,22 +35,22 @@ select{
 }
 
 .hide{
-    display: none;
+    /* display: none; */
 }
 .q_pages{
     padding: 10px;
     margin: 12% 32%;
     width: 600px;
-    height: 250px;
+    height: 300px;
     border: solid 1px green;
     border-radius: 10px;
     box-shadow: 3px 5px;
 }
-#q_min{
+.q_min{
     /* margin-left: 90%; */
     /* margin-top: 10px; */
     margin: 0px;
-    margin-left: 90%;
+    margin-left: 94%;
     padding: 0;
     
 }
@@ -68,7 +69,7 @@ select{
     padding: 10px;
 }
 .q_pages button{
-    margin: 30px 83%;
+    margin: 65px 85%;
     width: 90px;
     margin-bottom: 2px;
     border-radius: 9px;
@@ -89,4 +90,11 @@ select{
 
 #s_score{
     margin-top: 15%;
+}
+
+.form_error{
+    font-size: smaller;
+    color: red;
+    margin: 0;
+    margin-left: 100px;
 }

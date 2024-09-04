@@ -31,6 +31,45 @@ class Student{
 
 let arr = [];
 
+
+//validation function
+
+function validateForm() {
+    let name = fName.value;
+    let phone = phoneNumber.value;
+    let yearLevel = year.value;
+    const nameError = document.getElementById('name_error')
+    const phoneError = document.getElementById('phone_error')
+    const selectError = document.getElementById('select_error')
+    if (name == "") {
+        // alert("Name must be filled out");
+        nameError.textContent = 'Name must be filled out'
+        nameError.classList.remove('hide')
+        // return false;
+    } else{
+        console.log(name);
+        
+        nameError.classList.add('hide')
+    }
+
+    if (!/^[0-9]{11}$/.test(phone)) {
+        // alert("Phone number must be 11 digits");
+        phoneError.textContent = 'Phone number must be 11 digits'
+        phoneError.classList.remove('hide')
+        console.log(phone.length);
+        
+        // return false;
+    }
+
+    if (yearLevel == "") {
+        // alert("Year must be filled out");
+        selectError.textContent = 'Year must be filled out'
+        selectError.classList.remove('hide')
+        console.log(yearLevel);
+        
+        // return false;
+    }
+}
 // add and remove hide calss
 function addAndRemove(hid, disp){
     hid.classList.add('hide');
@@ -45,7 +84,9 @@ function hideAll(section){
     })
 }
 function sub (){
-    let student = new Student();
+    // console.log(validateForm());
+    if (validateForm()){
+        let student = new Student();
     if (fName.value, phoneNumber.value, year.value) {
         student.name = fName.value;
         student.phoneNumber = phoneNumber.value;
@@ -55,7 +96,7 @@ function sub (){
         startCountdown(1)
         startCountQuestion();
     }
-    
+    }
 }
 
 function section2 (){
@@ -221,10 +262,15 @@ function startCountQuestion(){
             countdown--;
         }
         
-        
+        // let section = `sec${currentSection}`;
         const minutes = Math.floor(countdown / 60);
         const seconds = countdown % 60;
-        timerElemen.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        
+        const section = `s${currentSection}`;
+        const countEl = document.getElementById(`s${currentSection}`);
+
+        
+        countEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         // updateTimerDisplay(minutes, seconds);
     },1000);
 }

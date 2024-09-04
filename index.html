@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-        <!-- timers
-         <p id="t_min" class="hide"> 00:00</p>
-         <p id="q_min" class="hide">00:00</p> -->
+        <!-- timers -->
+         <p id="t_min" class="hide"> 00:00</p> 
     
         <!-- first page -->
         
@@ -17,8 +16,10 @@
             <form action="" method="post"></form>
                 <label for=""> Full Name </label>
                 <input id="name" type="text"> <br/>
+                <p id="name_error" class="hide form_error"></p>
                 <label for=""> Phone Number</label>
                 <input id="p_number" type="text" required> <br>
+                <p id="phone_error" class="hide form_error"></p>
                 <label for=""> Level </label>
                 <select name="" id="year" required>
                     <option value=""> select </option>
@@ -26,15 +27,14 @@
                     <option value="Year 2"> Year 2 </option>
                     <option value="Year 3"> Year 3 </option>
                 </select> <br>
+                <p id="select_error" class="hide form_error"></p>
                 <button type="submit" onclick="sub()" id="f_nex">Start</button>
             </form>
         </section>
     
         <!-- first question -->
          <section id="sec2" class="hide q_pages">
-            <!-- timers -->
-            <p id="t_min" class=""> 00:00</p>
-            <p id="q_min" class="hide">00:00</p>
+            <p id="s2" class="q_min">00:00</p>
             <label for=""> In which year Neoten was born? </label> <br>
             <input type="radio" class="f_o" name="neoten" value="1880"> 1880 <br>
             <input type="radio" class="f_o" name="neoten" value="1890"> 1890 <br>
@@ -43,9 +43,7 @@
         </section>
         <!-- second question -->
          <section id="sec3" class="hide q_pages">
-            <!-- timers -->
-            <p id="t_min" class=""> 00:00</p>
-            <p id="q_min" class="hide">00:00</p>
+            <p id="s3" class="q_min">00:00</p>
             <label for=""> Neoten is the scientest who invented </label> <br>
             <input type="radio" class="s_o" name="invented" value="electeristy" id=""> <span>electeristy </span><br>
             <input type="radio" class="s_o" name="invented" value="gravite" id=""> <span>gravite </span><br>
@@ -54,9 +52,7 @@
         </section>
         <!-- third question -->
          <section id="sec4" class="hide q_pages">
-            <!-- timers -->
-            <p id="t_min" class=""> 00:00</p>
-            <p id="q_min" class="hide">00:00</p>
+            <p id="s4" class="q_min">00:00</p>
             <label for=""> In which year Tesla was born? </label> <br>
             <input type="radio" class="t_o" name="tesla" value="1880" id=""> <span>1880 </span><br>
             <input type="radio" class="t_o" name="tesla" value="1890" id=""> <span>1890 </span> <br>
@@ -65,9 +61,7 @@
         </section>
         <!-- fourth question -->
          <section id="sec5" class="hide q_pages">
-            <!-- timers -->
-            <p id="t_min" class=""> 00:00</p>
-            <p id="q_min" class="hide">00:00</p>
+            <p id="s5" class="q_min">00:00</p>
             <label for=""> Tesla discovered </label> <br>
             <input type="radio" class="f_o" name="discovered" value="the amber"> <span>the amber </span><br>
             <input type="radio" class="f_o" name="discovered" value="the electeristy"><span> the electeristy </span><br>
@@ -76,9 +70,7 @@
         </section>
         <!-- fifth question -->
          <section id="sec6" class="hide q_pages">
-            <!-- timers -->
-            <p id="t_min" class=""> 00:00</p>
-            <p id="q_min" class="hide">00:00</p>
+            <p id="s6" class="q_min">00:00</p>
             <label for=""> In which year you were born? </label> <br>
             <input type="radio" class="fi_o" name="born" value="1997" id=""> <span>1997 </span> <br>
             <input type="radio" class="fi_o" name="born" value="1996" id=""> <span>1996 </span> <br>
