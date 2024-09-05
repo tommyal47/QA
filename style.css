@@ -1,6 +1,4 @@
 #f_page{
-    /* margin: 12% 45%;
-    padding: 0px; */
     padding: 30px;
     margin: 12% 32%;
     width: 600px;
@@ -35,7 +33,6 @@ label{
     margin-left: 100px;
     padding: 10px;
     border-radius: 10px;
-    /* position: absolute; */
 }
 select{
     margin: 5px;
@@ -58,15 +55,12 @@ select{
     box-shadow: 3px 5px;
 }
 .q_min{
-    /* margin-left: 90%; */
-    /* margin-top: 10px; */
     margin: 0px;
     margin-left: 94%;
     padding: 0;
     
 }
 #t_min{
-    /* margin-top: 100px; */
     position: absolute;
     margin-top: -30px;
     margin-left: 490px;

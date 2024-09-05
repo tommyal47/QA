@@ -41,51 +41,38 @@ function validateForm() {
     const nameError = document.getElementById('name_error')
     const phoneError = document.getElementById('phone_error')
     const selectError = document.getElementById('select_error')
-    // if (!name || !phone || !yearLevel) {
         if (name == "") {
-            // alert("Name must be filled out");
             nameError.textContent = 'Name must be filled out'
             nameError.classList.remove('hide')
             return false;
         } else{
-            // console.log(name);
-            
             nameError.classList.add('hide')
         }
     
         if (!/^[0-9]{11}$/.test(phone)) {
-            // alert("Phone number must be 11 digits");
             phoneError.textContent = 'Phone number must be 11 digits'
             phoneError.classList.remove('hide')
-            // console.log(phone.length);
-            
             return false;
         }else{
-            // console.log(name);
-            
             phoneError.classList.add('hide')
         }
     
         if (yearLevel == "") {
-            // alert("Year must be filled out");
             selectError.textContent = 'Year must be filled out'
             selectError.classList.remove('hide')
-            // console.log(yearLevel);
-            
             return false;
         }
         else {
             selectError.classList.add('hide');
             return true;
         }
-    // }
     
 }
+
 // add and remove hide calss
 function addAndRemove(hid, disp){
     hid.classList.add('hide');
-    disp.classList.remove('hide');
-  
+    disp.classList.remove('hide'); 
 }
 
 var section = [sec1, sec2, sec3, sec4, sec5, sec6]
@@ -95,10 +82,8 @@ function hideAll(section){
     })
 }
 function sub (){
-    // console.log(validateForm());
     if (validateForm()){
         let student = new Student();
-        // if (fName.value, phoneNumber.value, year.value) {
             student.name = fName.value;
             student.phoneNumber = phoneNumber.value;
             student.level = year.value;
@@ -106,10 +91,8 @@ function sub (){
             addAndRemove(sec1, sec2)
             startCountdown(5)
             startCountQuestion();
-        // }
     }else {
         validateForm();
-        // console.log(validateForm());
     }
 }
 
@@ -124,7 +107,6 @@ function section2 (){
         arr[0].score += 10;
     }
     startCountQuestion(sec3, sec4);
-    // addAndRemove(sec2, sec3);
     
 }
 
@@ -138,7 +120,6 @@ function section3 (){
     if (values[0] == 'electeristy'){
         arr[0].score += 10;
     }
-    // addAndRemove(sec3, sec4)
     startCountQuestion();
 }
 
@@ -152,7 +133,6 @@ function section4 (){
     if (values[0] == 1980){
         arr[0].score += 10;
     }
-    // addAndRemove(sec4, sec5)
     startCountQuestion();
 }
 
@@ -167,15 +147,11 @@ function section5 (){
     if (values[1] == 'the amber'){
         arr[0].score += 10;
     }
-    // addAndRemove(sec5, sec6)
     startCountQuestion();
-    // timerElemen.classList.add('hide')
 }
 
 function endPage (){
-    // timerElemen.classList.add('hide');
     addAndRemove(sec6, sec7)
-    // timerElemen.classList.add('hide');
     scoreEl.innerHTML = `Your score is ${arr[0].score} `
 }
 
@@ -218,16 +194,9 @@ function startCountQuestion(){
             next = false;
             clearInterval(countdownInterval);
             transitionToNextSection()
-            
-        
-            // countdown = 10;
-            // startCountQuestion(secadd, secremove);
             return;
             }
             if (countdown <= 0) {
-                // next = false;
-                // console.log("entered");
-                
             clearInterval(countdownInterval);
             transitionToNextSection()
             if (currentSection <= maxSection) {
@@ -235,72 +204,33 @@ function startCountQuestion(){
                 startCountQuestion(); // Restart the timer for the next section
                 return;
             }
-            
-
-            // if (!sec7.classList.contains('hide')){
-            //     clearInterval(countdownInterval);
-            //     timerElemen.classList.add('hide');
-            //     // console.log('hide');
-                
-            //     return;
-            // } else {
-            //     timerElemen.classList.remove('hide');
-            //     countdown--;
-            // }
         }
-        // if (countdown <= 0) {
-        //     // next = false;
-        //     clearInterval(countdownInterval);
-        //     transitionToNextSection()
-        //     if (currentSection <= maxSection) {
-        //         countdown = 10; // Reset countdown
-        //         startCountQuestion(); // Restart the timer for the next section
-        //     }
-
-        //     // countdown = 10;
-        //     // startCountQuestion(secadd, secremove);
-        //     return;
-        // }
-        
         
         if (!sec7.classList.contains('hide')){
             clearInterval(countdownInterval);
-            // console.log(currentSection);
-            
-            // console.log('hide');
-            
             return;
         } else {
             countdown--;
         }
         
-        // let section = `sec${currentSection}`;
         const minutes = Math.floor(countdown / 60);
         const seconds = countdown % 60;
         
         const section = `s${currentSection}`;
         const countEl = document.getElementById(`s${currentSection}`);
-
-        
         countEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        // updateTimerDisplay(minutes, seconds);
     },1000);
 }
+
 // transition to the next section
 function transitionToNextSection (){
     if (currentSection < maxSection){
         let secadd = document.getElementById(`sec${currentSection}`);
-        // let secadd = sec2;
         let secremove = document.getElementById(`sec${currentSection + 1}`);
-        // let secremove = sec3;
         currentSection++;
         addAndRemove(secadd, secremove);
-        
-
     }else {
-        // Logic for when reaching the final section
         timerElemen.classList.add('hide');
         return;
     }
 }
-// console.log(timerElement);
